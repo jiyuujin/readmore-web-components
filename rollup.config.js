@@ -32,6 +32,20 @@ export default {
         },
       ],
   preprocess: sveltePreprocess({
+    babel: {
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            loose: true,
+            modules: false,
+            targets: {
+              esmodules: true,
+            },
+          },
+        ],
+      ],
+    },
     postcss:{
       plugins: [
         postcssFlexibility,
