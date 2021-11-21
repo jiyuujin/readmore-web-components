@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import del from 'rollup-plugin-delete';
 import { terser } from 'rollup-plugin-terser';
 import summary from 'rollup-plugin-summary';
+import sveltePreprocess from 'svelte-preprocess';
 import pkg from './package.json';
 
 const bundleComponents = true;
@@ -36,6 +37,7 @@ export default {
         dev: !production,
         customElement: true,
       },
+      preprocess: sveltePreprocess(),
     }),
     svelte({
       exclude: /\.wc\.svelte$/,
